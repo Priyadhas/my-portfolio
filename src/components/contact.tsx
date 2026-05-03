@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { EnvelopeIcon, PhoneIcon, MapPinIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon, PhoneIcon, MapPinIcon, CodeBracketIcon } from "@heroicons/react/24/outline";
 
 export default function Contact() {
   return (
@@ -71,16 +71,21 @@ export default function Contact() {
                 <div className="text-sm font-medium text-zinc-200">Dubai, UAE</div>
               </div>
             </div>
+
+            <div className="flex items-center gap-4 group/item">
+              <span className="flex items-center justify-center h-12 w-12 rounded-xl bg-white/5 border border-white/10 group-hover/item:border-blue-500/30 group-hover/item:bg-blue-500/10 transition-colors">
+                <CodeBracketIcon className="h-6 w-6 text-blue-400 group-hover/item:text-green-300 transition-colors" />
+              </span>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-1">GitHub</div>
+                <a href="https://github.com/Priyadhas" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-zinc-200 hover:text-blue-400 transition-colors">
+                  github.com/Priyadhas
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-10">
-            <a
-              href="mailto:mariadhaspriya@gmail.com"
-              className="inline-flex w-full justify-center items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold px-6 py-3.5 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:shadow-[0_0_25px_rgba(59,130,246,0.4)] transition-all"
-            >
-              Send an Email
-            </a>
-          </div>
+
         </motion.div>
 
         <motion.div
