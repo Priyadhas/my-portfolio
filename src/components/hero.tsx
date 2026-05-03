@@ -45,7 +45,7 @@ export default function Hero() {
                         </motion.div>
 
                         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-50 leading-[1.1]">
-                            Hi, I'm <br />
+                            Hi, I&apos;m <br />
                             <span className="text-blue-400">
                                 PRIYA M D
                             </span>

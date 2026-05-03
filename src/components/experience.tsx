@@ -54,28 +54,28 @@ export default function Experience() {
           >
             {/* Timeline Dot */}
             <span className="absolute -left-[5px] top-1.5 h-2.5 w-2.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.8)] group-hover:scale-150 transition-transform duration-300"></span>
-            
+
             <div className="bg-zinc-900/50 backdrop-blur-xl p-6 md:p-8 rounded-3xl border border-white/5 shadow-xl hover:border-white/10 hover:shadow-2xl transition-all duration-300 relative overflow-hidden">
-                <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
-                <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                    <div>
-                        <h4 className="text-xl md:text-2xl font-bold text-zinc-50">{exp.title}</h4>
-                        <p className="text-blue-400 font-medium mt-1">{exp.company}</p>
-                    </div>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-zinc-300 whitespace-nowrap">
-                        {exp.period}
-                    </span>
+              <div className="absolute inset-0 bg-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+              <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+                <div>
+                  <h4 className="text-xl md:text-2xl font-bold text-zinc-50">{exp.title}</h4>
+                  <p className="text-blue-400 font-medium mt-1">{exp.company}</p>
                 </div>
-                
-                <ul className="relative z-10 space-y-3">
-                    {exp.desc.map((d, index) => (
-                        <li key={index} className="text-sm md:text-[15px] text-zinc-400 leading-relaxed flex gap-3">
-                            <span className="text-cyan-500 mt-1.5 flex-shrink-0">•</span>
-                            <span>{d}</span>
-                        </li>
-                    ))}
-                </ul>
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-zinc-300 whitespace-nowrap">
+                  {exp.period}
+                </span>
+              </div>
+
+              <ul className="relative z-10 space-y-3">
+                {exp.desc.map((d, index) => (
+                  <li key={index} className="text-sm md:text-[15px] text-zinc-400 leading-relaxed flex gap-3">
+                    <span className="text-cyan-500 mt-1.5 flex-shrink-0">•</span>
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         ))}
