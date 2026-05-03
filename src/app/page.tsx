@@ -9,17 +9,17 @@ import Skills from "@/components/skills";
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
+    <div className="min-h-screen bg-[#0b0f19] text-zinc-50 font-sans selection:bg-cyan-500/30 selection:text-cyan-100">
       <Header />
-      <main className="max-w-6xl mx-auto px-6 py-10">
+      <main className="max-w-6xl mx-auto px-6 py-10 space-y-32">
         <Hero />
         <Experience />
         <EducationCerts />
-         <Skills />
+        <Skills />
         <Projects />
         <Contact />
-        <Footer />
       </main>
+      <Footer />
     </div>
   );
 }

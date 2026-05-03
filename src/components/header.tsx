@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const links = [
-
   { href: "#hero", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#education", label: "Education" },
@@ -47,19 +46,17 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50">
-  
-      <div className="h-1 w-full bg-transparent">
+      <div className="h-[2px] w-full bg-transparent">
         <div
           aria-hidden
           style={{ width: `${scrollPct}%` }}
-          className="h-1 bg-gradient-to-r from-indigo-500 via-fuchsia-500 to-pink-500 shadow-sm transition-[width] duration-150"
+          className="h-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-[width] duration-150"
         />
       </div>
 
-      <div className="backdrop-blur-md bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-700/40">
+      <div className="backdrop-blur-xl bg-[#0b0f19]/80 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between py-3">
-            
+          <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-4">
               <motion.div
                 initial={{ scale: 0.97, opacity: 0 }}
@@ -67,27 +64,25 @@ export default function Header() {
                 transition={{ duration: 0.45 }}
                 className="flex items-center gap-3"
               >
-              
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-pink-500 shadow-md"
+                  className="relative w-10 h-10 rounded-full p-[2px] bg-gradient-to-tr from-blue-500 via-purple-500 to-cyan-500 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
                 >
-                
                   <div className="absolute inset-0 rounded-full overflow-hidden bg-white/0 p-[2px]">
                     <img
-                      src="/assets/image.JPG"
-                      alt="Priya Maria Dhas"
-                      className="w-full h-full rounded-full object-cover ring-2 ring-white/80"
+                      src="/assets/Profile_image.jpeg"
+                      alt="PRIYA M D"
+                      className="w-full h-full rounded-full object-cover ring-2 ring-[#0b0f19]"
                     />
                   </div>
                 </motion.div>
 
                 <div className="leading-tight">
-                  <h1 className="text-sm md:text-base font-semibold text-slate-900 dark:text-white">
-                    Priya Maria Dhas
+                  <h1 className="text-sm font-semibold tracking-tight text-zinc-50">
+                    PRIYA M D
                   </h1>
-                  <p className="text-xs md:text-sm text-slate-500 dark:text-slate-300">
-                    Full Stack Developer — React · Node · Cloud
+                  <p className="text-xs text-zinc-400">
+                    Software Engineer
                   </p>
                 </div>
               </motion.div>
@@ -100,19 +95,26 @@ export default function Header() {
                   <a
                     key={l.href}
                     href={l.href}
-                    className={`relative text-sm font-medium px-1 py-1 transition ${
-                      isActive ? "text-indigo-600" : "text-slate-700 dark:text-slate-300"
-                    }`}
+                    className={`relative text-sm font-medium px-2 py-1 transition-colors duration-200 ${isActive ? "text-zinc-50" : "text-zinc-400 hover:text-zinc-200"
+                      }`}
                     onClick={() => setOpen(false)}
                   >
                     <span className="group inline-block relative">
                       <span className="relative z-10">{l.label}</span>
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.span
+                            layoutId="active-nav-link"
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            className="absolute -inset-x-2 -inset-y-1 z-0 bg-white/5 rounded-md"
+                          />
+                        )}
+                      </AnimatePresence>
                       <motion.span
                         layout
                         transition={{ type: "spring", stiffness: 400, damping: 28 }}
-                        className={`absolute left-0 right-0 -bottom-1 h-[3px] rounded-full ${
-                          isActive ? "bg-gradient-to-r from-indigo-500 to-pink-500" : "bg-transparent"
-                        }`}
+                        className={`absolute left-0 right-0 -bottom-[6px] h-[2px] rounded-full ${isActive ? "bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]" : "bg-transparent"
+                          }`}
                       />
                     </span>
                   </a>
@@ -125,9 +127,9 @@ export default function Header() {
               <button
                 aria-label="Toggle menu"
                 onClick={() => setOpen((v) => !v)}
-                className="p-2 rounded-lg inline-flex items-center justify-center bg-white/60 dark:bg-slate-800/60 ring-1 ring-slate-200/50 dark:ring-slate-700/40"
+                className="p-2 rounded-md inline-flex items-center justify-center bg-white/5 border border-white/10 hover:bg-white/10 transition text-zinc-200"
               >
-                <svg className="h-6 w-6 text-slate-700 dark:text-slate-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {open ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                   ) : (
@@ -147,22 +149,25 @@ export default function Header() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.28 }}
-              className="md:hidden px-4 pb-4"
+              className="md:hidden overflow-hidden border-t border-white/10 bg-[#0b0f19]/95 backdrop-blur-md"
             >
-              <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col gap-2 mt-2">
-                  {links.map((l) => (
+              <div className="px-4 py-4 space-y-1">
+                {links.map((l) => {
+                  const isActive = active === l.href;
+                  return (
                     <a
                       key={l.href}
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="block px-3 py-2 rounded-lg text-sm text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition"
+                      className={`block px-3 py-2.5 rounded-lg text-sm transition-colors ${isActive
+                          ? "bg-white/10 text-zinc-50 font-medium"
+                          : "text-zinc-400 hover:text-zinc-200 hover:bg-white/5"
+                        }`}
                     >
                       {l.label}
                     </a>
-                  ))}
-
-                </div>
+                  );
+                })}
               </div>
             </motion.div>
           )}
